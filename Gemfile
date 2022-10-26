@@ -24,6 +24,8 @@ gem 'bootsnap', require: false
 # Get rid of warnings: https://stackoverflow.com/questions/67773514/
 gem "net-http"
 
+gem "rubocop"
+
 group :development, :test do
   # RSpec testing framework to Ruby on Rails as alternative to its default testing framework
   # Adding it to the :development group is not strictly necessary, but without it, generators and rake tasks must be preceded by RAILS_ENV=test
