@@ -22,6 +22,7 @@ describe 'New author page', type: :feature do
     visit new_author_path
     page.fill_in 'author[last_name]', with: last_name
     page.fill_in 'author[first_name]', with: first_name
+    page.fill_in 'author[homepage]', with: homepage
     find('input[type="submit"]').click
   end
 
@@ -34,6 +35,11 @@ describe "Author", type: :model do
     expect(author.first_name).to eq (first_name)
     expect(author.last_name).to eq (last_name)
     expect(author.homepage).to eq (homepage)
+  end
+
+  it "should throw an error without a last name" do
+    author = Author.new(first_name: first_name,  homepage: homepage)
+    expect(author).to_not be_valid
   end
 
   it "should return the full name" do
